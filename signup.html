@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="demoAs">
+  <h1 class="m-5" >Sign Up</h1>
+   <p class="m-5">Please fill in this form to create an account.</p>
+   <form class="m-5" onsubmit = "return hadleSubmit()" >
+        <div class="alert alert-danger" style="display: none;" id="firstNameError"></div>
+        <div class="form-group">
+          <label for="first_Name">Name</label>
+          <input type="text" class="form-control" id="first_Name" aria-describedby="emailHelp" placeholder="First">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="second_Name">Name</label>
+          <input type="text" class="form-control" id="second_Name" aria-describedby="emailHelp" placeholder="second">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="mobileNum">Mobile Number</label>
+          <input type="text" class="form-control" id="mobileNum" aria-describedby="emailHelp" placeholder="Enter Mobile Number">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="ConformPass">Conform Password</label>
+          <input type="password" class="form-control" id="ConformPass" placeholder="Re-enter Password">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" >Sign Up</button>
+      </form>
+      </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        
+
+        function hadleSubmit(){
+            var errorMessage = document.getElementById('firstNameError')
+            var firstName = document.getElementById('first_Name').value
+            var secondNmae = document.getElementById('second_Name').value
+            var email = document.getElementById('email').value
+            var mobileNum = document.getElementById('mobileNum').value
+            var password = document.getElementById('password').value
+            var ConformPass = document.getElementById('ConformPass').value
+
+
+
+
+
+            var regExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var regExppass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+            var regExpMnuber = /^\d{10}$/;
+
+
+
+            errorMessage.style.display="none";
+
+
+            if(firstName.length == 0){
+
+                errorMessage.innerText = "Plese Enter Your First Name"
+                errorMessage.style.display="block"
+                return false;
+            }
+            if(secondNmae.length == 0){
+                errorMessage.innerText = "plese enter your second name"
+                errorMessage.style.display="block"
+                return false;
+            }
+            if(email.length == 0){
+              errorMessage.innerText = "plese enter your email"
+                errorMessage.style.display="block"
+                return false;
+            }else if(!email.match(regExp)){
+                errorMessage.innerText = "plese enter valid  email"
+                errorMessage.style.display="block"
+                return false;
+            }
+            if(mobileNum.length == 0){
+                errorMessage.innerText = "plese Enter Mobile Number"
+                errorMessage.style.display="block"
+                return false;
+            }else if(! mobileNum.match(regExpMnuber)){
+                errorMessage.innerText = "plese Enter Valid Mobile Number"
+                errorMessage.style.display="block"
+                return false;
+            }
+            if(password.length == 0){
+              errorMessage.innerText = "plese enter password"
+                errorMessage.style.display="block"
+                return false;
+            }else if(!password.match(regExppass)){
+              errorMessage.innerText = "password should at least one Numeric digit/At least one special character /uppercase and lowercase"
+              errorMessage.style.display="block"
+              return false;
+            }
+            if(ConformPass.length == 0){
+              errorMessage.innerText = "plese re enter password"
+                errorMessage.style.display="block"
+                return false;
+            }
+            if(password != ConformPass){
+              errorMessage.innerText = "password do not match"
+                errorMessage.style.display="block"
+                return false;
+            }
+            
+              
+            
+            
+            
+            
+
+
+
+            alert("success")
+            return false;
+          }
+    </script>
+</body>
+</html>

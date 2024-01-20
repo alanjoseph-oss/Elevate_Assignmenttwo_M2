@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png">
+
+
+
+</head>
+
+<body>
+  
+  <div class="wrapper">
+
+    <div>
+    <h1 class="m-5" >Login</h1>
+    </div>
+
+    <form class="m-5" onsubmit=" return newFunction()">
+        <div class="alert alert-danger" style="display: none;" id="newError"></div>
+        <div class="form-group">
+          <label for="newEmail">Email Address</label>
+          <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp" placeholder="Enter email">
+          
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="newPassword">Password</label>
+          <input type="password" class="form-control" id="newPassword" placeholder="Password">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <p>Dont have an account? <a href="signup.html">Sign Up</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+     function newFunction(){
+        var newError = document.getElementById('newError');
+        var newEmail = document.getElementById('newEmail').value
+        var newPassword = document.getElementById('newPassword').value
+
+
+        var regExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var regExppass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+
+
+
+
+        newError.style.display="none";
+
+        if(newEmail.length == 0){
+            newError.innerText = " please enter your email"
+            newError.style.display ="block"
+            return false
+
+        }else if(! newEmail.match(regExp)){
+            newError.innerText = " plese enter valid email"
+            newError.style.display ="block"
+            return false;
+        }
+        if(newPassword.length == 0){
+            newError.innerText = " plese enter password";
+            newError.style.display ="block"
+            return false;
+          
+
+        }else if(! newPassword.match(regExppass)){
+          newError.innerText = " plese enter valid password"
+            newError.style.display ="block"
+            return false;
+        }
+
+         alert("sucess")
+         return false
+     }
+
+    </script>
+
+</body>
+</html>

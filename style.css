@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: seagreen;
+    background-position: center;
+    background-size: cover;
+    background-image: url(https://cdn.wallpapersafari.com/22/55/0XIm9q.png);
+}
+.wrapper{
+    width: 420px;
+    background-color: purple;
+    color: #fff;
+    background: transparent;
+}
+.demoAs{
+    
+    width: 420px;
+    background-color: purple;
+    color: #fff;
+    background: transparent;
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+.demoAs h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper p{
+    color: black;
+}
